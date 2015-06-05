@@ -1,0 +1,377 @@
+<?php
+
+/**
+ *  @file
+ *  Provide main module for custom functionality.
+ */
+
+  module_load_include('inc', 'custom','custom.pages');
+  module_load_include('inc', 'custom','custom.form');
+  module_load_include('inc', 'custom','custom');
+  module_load_include('inc', 'custom','custom.block');
+
+/**
+ * Implements hook_init().
+ */
+function custom_init() {
+  drupal_add_js(drupal_get_path('module', 'custom') . '/admin_custom.js', array('every_page' => TRUE));
+  drupal_add_css(drupal_get_path('module', 'custom') . '/custom.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
+}
+
+/**
+ * Implements hook_menu().
+ */
+function custom_menu() {
+  $items = array();
+
+  $items['admin/content/position-slider-on-front'] = array(
+    'title' => t('Settings Position Slider'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('custom_admin_settings_position_slider'),
+    'access arguments' => array('access administration pages'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function custom_block_info() {
+  
+  $blocks['write_to_us'] = array(
+    'info' => t('Write to us'),
+  );
+
+  $blocks['custom_popup_render'] = array(
+    'info' => t('Custom popup render'),
+  );
+
+  $blocks['follow_us'] = array(
+    'info' => t('Follow us'),
+  );
+
+  $blocks['comments_custom'] = array(
+    'info' => t('Comments custom'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function custom_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+
+     case 'write_to_us':
+
+      $link_text = t('Write to us');
+      $block['content'] = '<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#block-custom-custom-popup-render">' . $link_text . '</button>';
+      break;
+
+    case 'custom_popup_render':
+      $block['content'] = _custom_popup_render();
+      break;
+
+    case 'follow_us':
+      $block['content'] = "<script type='text/javascript'>(function(w,doc) {
+if (!w.__utlWdgt ) {
+    w.__utlWdgt = true;
+    var d = doc, s = d.createElement('script'), g = 'getElementsByTagName';
+    s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+    s.src = ('https:' == w.location.protocol ? 'https' : 'http')  + '://w.uptolike.com/widgets/v1/uptolike.js';
+    var h=d[g]('body')[0];
+    h.appendChild(s);
+}})(window,document);
+</script>" . '<div data-share-size="30" data-like-text-enable="false" data-background-alpha="0.0" data-pid="1346100" data-mode="share" data-background-color="#ffffff" data-share-shape="round-rectangle" data-share-counter-size="12" data-icon-color="#ffffff" data-text-color="#000000" data-buttons-color="#FFFFFF" data-counter-background-color="#ffffff" data-share-counter-type="disable" data-orientation="horizontal" data-following-enable="false" data-sn-ids="fb.vk.tw.ok.gp." data-selection-enable="true" data-exclude-show-more="false" data-share-style="1" data-counter-background-alpha="1.0" data-top-button="false" class="uptolike-buttons" ></div>';
+      break;
+    case 'comments_custom':
+      $block['content'] = '<div id="hypercomments_widget"></div>
+<script type="text/javascript">
+_hcwp = window._hcwp || [];
+_hcwp.push({widget:"Stream", widget_id: 26173});
+(function() {
+if("HC_LOAD_INIT" in window)return;
+HC_LOAD_INIT = true;
+var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/26173/"+lang+"/widget.js";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hcc, s.nextSibling);
+})();
+</script>
+<a href="http://hypercomments.com" class="hc-link" title="comments widget">comments powered by HyperComments</a>';
+      break;
+
+  }
+  return $block;
+}
+
+/**
+ * Function for render content popup.
+ */
+function _custom_popup_render() {
+  $content = '';
+
+  // $content = '<div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="checkoutModalLabel" aria-hidden="true">';
+  $content .= '<div class="modal-dialog">';
+  $content .= '<div class="modal-content">';
+  $content .= '<div class="modal-header">';
+  $content .= '<span class="title">';
+  $content .= t('Feedback Form');
+  $content .= '</span>';
+  $content .= '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+  $content .= '</div>';
+  $content .= '<div class="modal-body">';
+  $block = module_invoke('webform', 'block_view', 'client-block-2056');
+  $content .= render($block['content']);
+  $content .= '</div>';
+  $content .= '</div>';
+  $content .= '</div>';
+  // $content .= '</div>';
+  return $content;
+}
+
+/**
+ * Implements template_preprocess_search_result().
+ */
+function custom_preprocess_search_result(&$variables) {
+  global $language;
+
+  $result = $variables['result'];
+  $variables['url'] = check_url($result['link']);
+  $variables['title'] = check_plain($result['title']);
+  if (isset($result['language']) && $result['language'] != $language->language && $result['language'] != LANGUAGE_NONE) {
+    $variables['title_attributes_array']['xml:lang'] = $result['language'];
+    $variables['content_attributes_array']['xml:lang'] = $result['language'];
+  }
+
+  $info = array();
+  if (!empty($result['module'])) {
+    $info['module'] = check_plain($result['module']);
+  }
+  if (isset($result['extra']) && is_array($result['extra'])) {
+    $info = array_merge($info, $result['extra']);
+  }
+  // Check for existence. User search does not include snippets.
+  $variables['snippet'] = isset($result['snippet']) ? $result['snippet'] : '';
+  // Provide separated and grouped meta information..
+  $variables['info_split'] = $info;
+  $variables['info'] = implode(' - ', $info);
+  $variables['theme_hook_suggestions'][] = 'search_result__' . $variables['module'];
+}
+
+/**
+ * Implements template_preprocess_views_view_field().
+ */
+function custom_preprocess_views_view_field(&$vars) {
+  switch ($vars['view']->name) {
+    case 'camps_blocks':
+    case 'seem_':
+      if ($vars['field']->options['id'] == 'field_foto_article_plitka') {
+          $field_format = $vars['view']->field['field_format']->original_value;
+          $nid = $vars['view']->field['nid']->original_value;
+          if ($field_format == 'horizontal') {
+            $node = node_load($nid);
+            $field_foto_article_plitka = $node->field_foto_article_plitka;
+  
+            $render = '';
+            if (!empty($field_foto_article_plitka)) {
+              foreach ($field_foto_article_plitka[LANGUAGE_NONE] as $key => $value) {
+                $image = theme('image_style', array(
+                  'style_name' => 'horisontal_black',
+                  'path'       => $value['uri'],
+                  'alt'        => $value['alt'],
+                  'title'      => $value['title'],
+                ));
+                $render .= "<a href='/node/{$node->nid}'>" . $image . '</a>';
+              }
+            }
+            $vars['view']->field['field_foto_article_plitka']->original_value = $render;
+            $vars['view']->field['field_foto_article_plitka']->last_render = $render;
+            $vars['view']->field['field_foto_article_plitka']->last_render_text = $render;
+            $vars['output'] = $render;
+          }
+      }
+      if ($vars['field']->options['id'] == 'field_foto_article_plitka_1') {
+          $field_format = $vars['view']->field['field_format']->original_value;
+          $nid = $vars['view']->field['nid']->original_value;
+          if ($field_format == 'horizontal') {
+            $node = node_load($nid);
+            $field_foto_article_plitka = $node->field_foto_article_plitka;
+  
+            $render = '';
+            if (!empty($field_foto_article_plitka)) {
+              foreach ($field_foto_article_plitka[LANGUAGE_NONE] as $key => $value) {
+                $image = theme('image_style', array(
+                  'style_name' => 'horisontal_original',
+                  'path'       => $value['uri'],
+                  'alt'        => $value['alt'],
+                  'title'      => $value['title'],
+                ));
+                $render .= "<a href='/node/{$node->nid}'>" . $image . '</a>';
+              }
+            }
+            $vars['view']->field['field_foto_article_plitka_1']->original_value = $render;
+            $vars['view']->field['field_foto_article_plitka_1']->last_render = $render;
+            $vars['view']->field['field_foto_article_plitka_1']->last_render_text = $render;
+            $vars['output'] = $render;
+          }
+      }
+      if ($vars['field']->options['id'] == 'nothing_1') {
+        $original_value = $vars['view']->field['field_visit_foto']->original_value;
+        if (empty($original_value) || !$original_value) {
+          $vars['output'] = '';
+        }
+      }
+      
+      if ($vars['field']->options['id'] == 'field_video_sta') {
+        $original_value_video = $vars['view']->field['field_visit_video']->original_value;
+        if (empty($original_value_video) || !$original_value_video) {
+          $vars['output'] = '';
+        }
+      }
+
+      if ($vars['field']->options['id'] == 'field_add_video_computer') {
+        $original_value_video = $vars['view']->field['field_visit_video']->original_value;
+        if (empty($original_value_video) || !$original_value_video) {
+          $vars['output'] = '';
+        }
+      }
+
+    break;
+   
+  }
+}
+
+/**
+* Implements hook_views_pre_view().
+*/
+function custom_views_pre_view(&$view, &$display_id, &$args){
+
+  if ($view->name == 'camps_blocks' && $display_id == 'page_2') {
+
+    $articles = db_select('node', 'n')
+      ->fields('n', array('nid'))
+      ->condition('type', 'statya')
+      ->condition('status', NODE_PUBLISHED)
+      ->condition('f.field_to_front_value', 1)
+      ->orderBy('d.field_date_publication_value', 'DESC')
+      ->orderBy('z.field_front_value', 'DESC')
+      ->range(0, 17);
+    $articles->join('field_data_field_to_front', 'f', 'f.entity_id = n.nid');
+    $articles->fields('f', array('field_to_front_value'));
+    $articles->join('field_data_field_front', 'z', 'z.entity_id = n.nid');
+    $articles->fields('z', array('field_front_value'));
+    $articles->join('field_data_field_date_publication', 'd', 'd.entity_id = n.nid');
+    $articles->fields('d', array('field_date_publication_value'));
+    $result_articles = $articles->execute()->fetchCol();
+
+    $slider = db_select('node', 'n')
+      ->fields('n', array('nid'))
+      ->condition('type', 'slider_for_reclame')
+      ->condition('status', NODE_PUBLISHED)
+      ->condition('f.field_to_front_value', 1)
+      ->orderBy('d.field_date_publication_value', 'DESC')
+      ->range(0, 1);
+    $slider->join('field_data_field_to_front', 'f', 'f.entity_id = n.nid');
+    $slider->fields('f', array('field_to_front_value'));
+    $slider->join('field_data_field_date_publication', 'd', 'd.entity_id = n.nid');
+    $slider->fields('d', array('field_date_publication_value'));
+    $result_slider = $slider->execute()->fetchField();
+
+    $result = array();
+    $k = 1;
+    $value_slider = variable_get('custom_position_slider', 5);
+    foreach ($result_articles as $key => $value) {
+      if ($k == $value_slider && !empty($result_slider)) {
+        $result[] = $result_slider;
+      }
+      $result[] = $value;
+      $k++;
+    }
+
+    $arguments = implode('+', $result);
+    
+    $args = array($arguments);
+
+  }
+  if ($view->name == 'seem_' && $display_id == 'block_3') {
+    $current_nid = arg(1);
+    $articles = db_select('node', 'n')
+      ->fields('n', array('nid'))
+      ->condition('type', 'statya')
+      ->condition('n.nid', $current_nid)
+      ->condition('status', NODE_PUBLISHED)
+      ->distinct()
+      ->range(0, 5);
+    $articles->join('field_data_field_simular_article', 'f', 'f.entity_id = n.nid');
+    $articles->fields('f', array('field_simular_article_nid'));
+    $result_simular = $articles->execute()->fetchAll();
+
+    $simular = array();
+    if (!empty($result_simular)) {
+      foreach ($result_simular as $key => $value) {
+        $simular[] = $value->field_simular_article_nid;
+      }
+    }
+    $count_simular = count($simular);
+    $range = 5 - $count_simular;
+
+    $articles_tags = array();
+    $tags_tid = '';
+    if (!empty(node_load($current_nid)->field_tags)) {
+      $tags_tid = node_load($current_nid)->field_tags[LANGUAGE_NONE][0]['tid'];
+    }
+    if ($range != 0 && !empty($tags_tid)) {
+      $tags = db_select('node', 'n')
+        ->fields('n', array('nid'))
+        ->condition('type', 'statya')
+        ->condition('n.nid', $current_nid, '!=')
+        ->condition('status', NODE_PUBLISHED)
+        ->condition('t.field_tags_tid', $tags_tid)
+        ->distinct()
+        ->range(0, $range);
+      $tags->join('field_data_field_tags', 't', 't.entity_id = n.nid');
+      $tags->fields('t', array('field_tags_tid'));
+      $result_tags = $tags->execute()->fetchAll();
+
+      foreach ($result_tags as $key => $value) {
+        if (!in_array($value->nid, $simular)) $articles_tags[] = $value->nid;
+      }
+      $simular = array_merge($simular, $articles_tags);
+    }
+
+    $result = array();
+    foreach ($simular as $key => $value) {
+      $result[] = $value;
+    }
+
+    $arguments = implode('+', $result);
+    
+    $args = array($arguments);
+
+  }
+}
+
+/**
+ * Page callback for settings my blogers update.
+ */
+function custom_admin_settings_position_slider($form, &$form_state) {
+  $form = array();
+
+  $form['custom_position_slider'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Position_slider_on_front'),
+    '#size'          => 60,
+    '#maxlength'     => 128,
+    '#required'      => TRUE,
+    '#default_value' => variable_get('custom_position_slider', 5),
+  );
+ 
+  return system_settings_form($form);
+}

@@ -1,0 +1,253 @@
+[submodule "sites/all/modules/contrib/globalredirect"]
+	path = sites/all/modules/contrib/globalredirect
+	url = http://git.drupal.org/project/globalredirect.git
+[submodule "sites/all/modules/contrib/admin_menu"]
+	path = sites/all/modules/contrib/admin_menu
+	url = http://git.drupal.org/project/admin_menu.git
+[submodule "sites/all/modules/contrib/views"]
+	path = sites/all/modules/contrib/views
+	url = http://git.drupal.org/project/views.git
+[submodule "sites/all/modules/contrib/pathauto"]
+	path = sites/all/modules/contrib/pathauto
+	url = http://git.drupal.org/project/pathauto.git
+[submodule "sites/all/modules/contrib/google_analytics"]
+	path = sites/all/modules/contrib/google_analytics
+	url = http://git.drupal.org/project/google_analytics.git
+[submodule "sites/all/modules/contrib/xmlsitemap"]
+	path = sites/all/modules/contrib/xmlsitemap
+	url = http://git.drupal.org/project/xmlsitemap.git
+[submodule "sites/all/modules/contrib/elysia_cron"]
+	path = sites/all/modules/contrib/elysia_cron
+	url = http://git.drupal.org/project/elysia_cron.git
+[submodule "sites/all/modules/contrib/metatag"]
+	path = sites/all/modules/contrib/metatag
+	url = http://git.drupal.org/project/metatag.git
+[submodule "sites/all/modules/contrib/wysiwyg"]
+	path = sites/all/modules/contrib/wysiwyg
+	url = http://git.drupal.org/project/wysiwyg.git
+[submodule "sites/all/modules/contrib/imce"]
+	path = sites/all/modules/contrib/imce
+	url = http://git.drupal.org/project/imce.git
+[submodule "sites/all/modules/contrib/wysiwyg_filter"]
+	path = sites/all/modules/contrib/wysiwyg_filter
+	url = http://git.drupal.org/project/wysiwyg_filter.git
+[submodule "sites/all/modules/contrib/transliteration"]
+	path = sites/all/modules/contrib/transliteration
+	url = http://git.drupal.org/project/transliteration.git
+[submodule "sites/all/modules/contrib/subpathauto"]
+	path = sites/all/modules/contrib/subpathauto
+	url = http://git.drupal.org/project/subpathauto.git
+[submodule "sites/all/modules/contrib/ctools"]
+	path = sites/all/modules/contrib/ctools
+	url = http://git.drupal.org/project/ctools.git
+[submodule "sites/all/modules/contrib/imce_wysiwyg"]
+	path = sites/all/modules/contrib/imce_wysiwyg
+	url = http://git.drupal.org/project/imce_wysiwyg.git
+[submodule "sites/all/modules/contrib/token"]
+	path = sites/all/modules/contrib/token
+	url = http://git.drupal.org/project/token.git
+[submodule "sites/all/modules/contrib/jquery_update"]
+	path = sites/all/modules/contrib/jquery_update
+	url = http://git.drupal.org/project/jquery_update.git
+[submodule "sites/all/modules/contrib/features"]
+	path = sites/all/modules/contrib/features
+	url = http://git.drupal.org/project/features.git
+[submodule "sites/all/modules/contrib/date"]
+	path = sites/all/modules/contrib/date
+	url = http://git.drupal.org/project/date.git
+[submodule "sites/all/modules/contrib/devel"]
+	path = sites/all/modules/contrib/devel
+	url = http://git.drupal.org/project/devel.git
+[submodule "sites/all/modules/contrib/rules"]
+	path = sites/all/modules/contrib/rules
+	url = http://git.drupal.org/project/rules.git
+[submodule "sites/all/modules/contrib/email"]
+	path = sites/all/modules/contrib/email
+	url = http://git.drupal.org/project/email.git
+[submodule "sites/all/modules/contrib/entity"]
+	path = sites/all/modules/contrib/entity
+	url = http://git.drupal.org/project/entity.git
+[submodule "sites/all/modules/contrib/quicktabs"]
+	path = sites/all/modules/contrib/quicktabs
+	url = http://git.drupal.org/project/quicktabs.git
+[submodule "sites/all/modules/contrib/features_extra"]
+	path = sites/all/modules/contrib/features_extra
+	url = http://git.drupal.org/project/features_extra.git
+[submodule "sites/all/modules/contrib/panels"]
+	path = sites/all/modules/contrib/panels
+	url = http://git.drupal.org/project/panels.git
+[submodule "sites/all/modules/contrib/libraries"]
+	path = sites/all/modules/contrib/libraries
+	url = http://git.drupal.org/project/libraries.git
+[submodule "sites/all/modules/contrib/colorbox"]
+	path = sites/all/modules/contrib/colorbox
+	url = http://git.drupal.org/project/colorbox.git
+[submodule "sites/all/modules/contrib/jcarousel"]
+	path = sites/all/modules/contrib/jcarousel
+	url = http://git.drupal.org/project/jcarousel.git
+[submodule "sites/all/modules/contrib/multiblock"]
+	path = sites/all/modules/contrib/multiblock
+	url = http://git.drupal.org/project/multiblock.git
+[submodule "sites/all/modules/contrib/webform"]
+	path = sites/all/modules/contrib/webform
+	url = http://git.drupal.org/project/webform.git
+[submodule "sites/all/modules/contrib/block_class"]
+	path = sites/all/modules/contrib/block_class
+	url = http://git.drupal.org/project/block_class.git
+[submodule "sites/all/modules/contrib/captcha"]
+	path = sites/all/modules/contrib/captcha
+	url = http://git.drupal.org/project/captcha.git
+[submodule "sites/all/modules/contrib/captcha_webform"]
+	path = sites/all/modules/contrib/captcha_webform
+	url = http://git.drupal.org/project/captcha_webform.git
+[submodule "sites/all/modules/contrib/imagecache_token"]
+	path = sites/all/modules/contrib/imagecache_token
+	url = http://git.drupal.org/project/imagecache_token.git
+[submodule "sites/all/modules/contrib/insert"]
+	path = sites/all/modules/contrib/insert
+	url = http://git.drupal.org/project/insert.git
+[submodule "sites/all/modules/contrib/multiupload_imagefield_widget"]
+	path = sites/all/modules/contrib/multiupload_imagefield_widget
+	url = http://git.drupal.org/project/multiupload_imagefield_widget.git
+[submodule "sites/all/modules/contrib/imagefield_crop"]
+	path = sites/all/modules/contrib/imagefield_crop
+	url = http://git.drupal.org/project/imagefield_crop.git
+[submodule "sites/all/modules/contrib/imagecache_actions"]
+	path = sites/all/modules/contrib/imagecache_actions
+	url = http://git.drupal.org/project/imagecache_actions.git
+[submodule "sites/all/modules/contrib/formatter_field"]
+	path = sites/all/modules/contrib/formatter_field
+	url = http://git.drupal.org/project/formatter_field.git
+[submodule "sites/all/modules/contrib/formatter_field_preset"]
+	path = sites/all/modules/contrib/formatter_field_preset
+	url = http://git.drupal.org/project/formatter_field_preset.git
+[submodule "sites/all/modules/contrib/video_embed_field"]
+	path = sites/all/modules/contrib/video_embed_field
+	url = http://git.drupal.org/project/video_embed_field.git
+[submodule "sites/all/modules/contrib/field_collection"]
+	path = sites/all/modules/contrib/field_collection
+	url = http://git.drupal.org/project/field_collection.git
+	branch = 7.x-1.x
+[submodule "sites/all/modules/contrib/views_bootstrap"]
+	path = sites/all/modules/contrib/views_bootstrap
+	url = http://git.drupal.org/project/views_bootstrap.git
+	branch = 7.x-3.x
+[submodule "sites/all/modules/contrib/ds_bootstrap_layouts"]
+	path = sites/all/modules/contrib/ds_bootstrap_layouts
+	url = http://git.drupal.org/project/ds_bootstrap_layouts.git
+	branch = 7.x-3.x
+[submodule "sites/all/modules/contrib/ds"]
+	path = sites/all/modules/contrib/ds
+	url = http://git.drupal.org/project/ds.git
+	branch = 7.x-2.x
+[submodule "sites/all/modules/contrib/views_slideshow"]
+	path = sites/all/modules/contrib/views_slideshow
+	url = http://git.drupal.org/project/views_slideshow.git
+	branch = 7.x-3.x
+[submodule "sites/all/modules/contrib/field_collection_views"]
+	path = sites/all/modules/contrib/field_collection_views
+	url = http://git.drupal.org/project/field_collection_views.git
+	branch = 7.x-1.x
+[submodule "sites/all/modules/contrib/ulogin"]
+	path = sites/all/modules/contrib/ulogin
+	url = http://git.drupal.org/project/ulogin.git
+	branch = 7.x-1.x
+[submodule "sites/all/modules/contrib/system_stream_wrapper"]
+	path = sites/all/modules/contrib/system_stream_wrapper
+	url = http://git.drupal.org/project/system_stream_wrapper.git
+	branch = 7.x-1.x
+[submodule "sites/all/modules/contrib/colectomy"]
+	path = sites/all/modules/contrib/colectomy
+	url = http://git.drupal.org/project/colectomy.git
+	branch = 7.x-1.x
+[submodule "sites/all/modules/contrib/total_gallery_formatter"]
+	path = sites/all/modules/contrib/total_gallery_formatter
+	url = http://git.drupal.org/project/total_gallery_formatter.git
+	branch = 7.x-1.x
+[submodule "sites/all/modules/contrib/simplecrop"]
+	path = sites/all/modules/contrib/simplecrop
+	url = http://git.drupal.org/project/simplecrop.git
+	branch = 7.x-1.x
+[submodule "sites/all/modules/contrib/views_load_more"]
+	path = sites/all/modules/contrib/views_load_more
+	url = http://git.drupal.org/project/views_load_more.git
+	branch = 7.x-1.x-1703436
+[submodule "sites/all/modules/contrib/menu_attributes"]
+	path = sites/all/modules/contrib/menu_attributes
+	url = http://git.drupal.org/project/menu_attributes.git
+	branch = 7.x-1.x
+[submodule "sites/all/modules/contrib/special_menu_items"]
+	path = sites/all/modules/contrib/special_menu_items
+	url = http://git.drupal.org/project/special_menu_items.git
+	branch = 7.x-2.x
+[submodule "sites/all/modules/contrib/webform_ajax"]
+	path = sites/all/modules/contrib/webform_ajax
+	url = http://git.drupal.org/project/webform_ajax.git
+	branch = 7.x-1.x
+[submodule "sites/all/modules/views_matrix"]
+	path = sites/all/modules/views_matrix
+	url = http://git.drupal.org/project/views_matrix.git
+	branch = 7.x-1.x
+[submodule "sites/all/modules/contrib/nodequeue"]
+	path = sites/all/modules/contrib/nodequeue
+	url = http://git.drupal.org/project/nodequeue.git
+	branch = 7.x-3.x
+[submodule "sites/all/modules/contrib/auto_nodequeue"]
+	path = sites/all/modules/contrib/auto_nodequeue
+	url = http://git.drupal.org/project/auto_nodequeue.git
+	branch = 7.x-3.x
+[submodule "sites/all/modules/contrib/views_field_view"]
+	path = sites/all/modules/contrib/views_field_view
+	url = http://git.drupal.org/project/views_field_view.git
+	branch = 7.x-1.x
+[submodule "sites/all/modules/contrib/field_conditional_state"]
+	path = sites/all/modules/contrib/field_conditional_state
+	url = http://git.drupal.org/project/field_conditional_state.git
+	branch = 7.x-2.x
+[submodule "sites/all/modules/contrib/videojs"]
+	path = sites/all/modules/contrib/videojs
+	url = http://git.drupal.org/project/videojs.git
+	branch = 7.x-3.x
+[submodule "sites/all/modules/contrib/memory_profiler"]
+	path = sites/all/modules/contrib/memory_profiler
+	url = http://git.drupal.org/project/memory_profiler.git
+	branch = 7.x-1.x
+[submodule "sites/all/modules/contrib/references"]
+	path = sites/all/modules/contrib/references
+	url = http://git.drupal.org/project/references.git
+	branch = 7.x-2.x
+[submodule "sites/all/modules/contrib/link"]
+	path = sites/all/modules/contrib/link
+	url = http://git.drupal.org/project/link.git
+	branch = 7.x-1.x
+[submodule "sites/all/modules/contrib/views_arguments_extras"]
+	path = sites/all/modules/contrib/views_arguments_extras
+	url = http://git.drupal.org/project/views_arguments_extras.git
+[submodule "sites/all/modules/contrib/imagecrop"]
+	path = sites/all/modules/contrib/imagecrop
+	url = http://git.drupal.org/project/imagecrop.git
+	branch = 7.x-1.x
+[submodule "sites/all/modules/contrib/manualcrop"]
+	path = sites/all/modules/contrib/manualcrop
+	url = http://git.drupal.org/project/manualcrop.git
+	branch = 7.x-1.x
+[submodule "sites/all/modules/contrib/emfield"]
+	path = sites/all/modules/contrib/emfield
+	url = http://git.drupal.org/project/emfield.git
+	branch = 7.x-1.x
+[submodule "sites/all/modules/contrib/media"]
+	path = sites/all/modules/contrib/media
+	url = http://git.drupal.org/project/media.git
+	branch = 7.x-2.x
+[submodule "sites/all/modules/contrib/file_entity"]
+	path = sites/all/modules/contrib/file_entity
+	url = http://git.drupal.org/project/file_entity.git
+	branch = 7.x-2.x
+[submodule "sites/all/modules/contrib/media_youtube"]
+	path = sites/all/modules/contrib/media_youtube
+	url = http://git.drupal.org/project/media_youtube.git
+	branch = 7.x-2.x
+[submodule "sites/all/modules/contrib/_media__rutube"]
+	path = sites/all/modules/contrib/_media__rutube
+	url = http://git.drupal.org/sandbox/zolexiy/1539898.git
+	branch = 7.x-1.x
